@@ -27,8 +27,6 @@ logText.innerText += pInfo.exp + "\n";
 
 }
 
-
-
 function response(
     room,
     msg,
@@ -38,4 +36,3 @@ function response(
     imageDB,
     packageName
   ) {}
-  

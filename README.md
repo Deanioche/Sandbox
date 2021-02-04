@@ -1,5 +1,5 @@
 
-# <hr style="border:2px solid brown"/>
+# <hr>
 
 # # 20210204
     
@@ -10,7 +10,7 @@
         그것이 실제로 일어났습니다.
     
 
-<hr style="border:2px solid brown"/>
+# <hr>
 
 
 # # 20210203
@@ -34,7 +34,7 @@
     # 디자인 Todo
         로그인 ,회원가입 이미지 수정
 
-# <hr style="border:2px solid brown"/>
+# <hr>
 
 # # 20210202
 ## # 오류
@@ -58,7 +58,7 @@
     # css 선택자와 placeholder-shown을 이용한 검색버튼 표시 기능
         https://codepen.io/soksurim/pen/ExNjpbr
 
-# <hr style="border:2px solid brown"/>
+# <hr>
 
 # # 20210201
 ## # 오류
@@ -101,4 +101,4 @@
         즉, 섀도우 루트를 기준으로 안팎의 id 또는 class가 중복되어도 각각 다른 역할을 수행한다.
         https://kyu.io/%EC%9B%B9-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B83%E2%80%8A-%E2%80%8A%EC%89%90%EB%8F%84%EC%9A%B0-%EB%8F%94shadow-dom/
 
-# <hr style="border:2px solid brown"/>
+# <hr>

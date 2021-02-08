@@ -1,200 +1,228 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>jQuery UI Autocomplete - Combobox</title>
-	<link rel="stylesheet" href="https:///code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="https:///code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-	<style>
-	.custom-combobox {
-		position: relative;
-		display: inline-block;
-	}
-	.custom-combobox-toggle {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		margin-left: -1px;
-		padding: 0;
-	}
-	.custom-combobox-input {
-		margin: 0;
-		padding: 5px 10px;
-	}
-	</style>
-	<script>
-	(function( $ ) {
-		$.widget( "custom.combobox", {
-			_create: function() {
-				this.wrapper = $( "<span>" )
-					.addClass( "custom-combobox" )
-					.insertAfter( this.element );
+	<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+	<link rel="stylesheet" href="style.css">
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="https://kit.fontawesome.com/2fe852cb17.js" crossorigin="anonymous"></script>
+	<!------ Include the above in your HEAD tag ---------->
 
-				this.element.hide();
-				this._createAutocomplete();
-				this._createShowAllButton();
-			},
-
-			_createAutocomplete: function() {
-				var selected = this.element.children( ":selected" ),
-					value = selected.val() ? selected.text() : "";
-
-				this.input = $( "<input>" )
-					.appendTo( this.wrapper )
-					.val( value )
-					.attr( "title", "" )
-					.addClass( "custom-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left" )
-					.autocomplete({
-						delay: 0,
-						minLength: 0,
-						source: $.proxy( this, "_source" )
-					})
-					.tooltip({
-						tooltipClass: "ui-state-highlight"
-					});
-
-				this._on( this.input, {
-					autocompleteselect: function( event, ui ) {
-						ui.item.option.selected = true;
-						this._trigger( "select", event, {
-							item: ui.item.option
-						});
-					},
-
-					autocompletechange: "_removeIfInvalid"
-				});
-			},
-
-			_createShowAllButton: function() {
-				var input = this.input,
-					wasOpen = false;
-
-				$( "<a>" )
-					.attr( "tabIndex", -1 )
-					.attr( "title", "Show All Items" )
-					.tooltip()
-					.appendTo( this.wrapper )
-					.button({
-						icons: {
-							primary: "ui-icon-triangle-1-s"
-						},
-						text: false
-					})
-					.removeClass( "ui-corner-all" )
-					.addClass( "custom-combobox-toggle ui-corner-right" )
-					.mousedown(function() {
-						wasOpen = input.autocomplete( "widget" ).is( ":visible" );
-					})
-					.click(function() {
-						input.focus();
-
-						// Close if already visible
-						if ( wasOpen ) {
-							return;
-						}
-
-						// Pass empty string as value to search for, displaying all results
-						input.autocomplete( "search", "" );
-					});
-			},
-
-			_source: function( request, response ) {
-				var matcher = new RegExp( $.ui.autocomplete.escapeRegex(request.term), "i" );
-				response( this.element.children( "option" ).map(function() {
-					var text = $( this ).text();
-					if ( this.value && ( !request.term || matcher.test(text) ) )
-						return {
-							label: text,
-							value: text,
-							option: this
-						};
-				}) );
-			},
-
-			_removeIfInvalid: function( event, ui ) {
-
-				// Selected an item, nothing to do
-				if ( ui.item ) {
-					return;
-				}
-
-				// Search for a match (case-insensitive)
-				var value = this.input.val(),
-					valueLowerCase = value.toLowerCase(),
-					valid = false;
-				this.element.children( "option" ).each(function() {
-					if ( $( this ).text().toLowerCase() === valueLowerCase ) {
-						this.selected = valid = true;
-						return false;
-					}
-				});
-
-				// Found a match, nothing to do
-				if ( valid ) {
-					return;
-				}
-
-				// Remove invalid value
-				this.input
-					.val( "" )
-					.attr( "title", value + " didn't match any item" )
-					.tooltip( "open" );
-				this.element.val( "" );
-				this._delay(function() {
-					this.input.tooltip( "close" ).attr( "title", "" );
-				}, 2500 );
-				this.input.autocomplete( "instance" ).term = "";
-			},
-
-			_destroy: function() {
-				this.wrapper.remove();
-				this.element.show();
-			}
-		});
-	})( jQuery );
-
-	$(function() {
-		$( "#combobox" ).combobox();
-		$( "#toggle" ).click(function() {
-			$( "#combobox" ).toggle();
-		});
-	});
-	</script>
+	<title>Document</title>
 </head>
 <body>
 
-<div class="ui-widget">
-	<label>Your preferred programming language: </label>
-	<select id="combobox">
-		<option value="">Select one...</option>
-		<option value="ActionScript">ActionScript</option>
-		<option value="AppleScript">AppleScript</option>
-		<option value="Asp">Asp</option>
-		<option value="BASIC">BASIC</option>
-		<option value="C">C</option>
-		<option value="C++">C++</option>
-		<option value="Clojure">Clojure</option>
-		<option value="COBOL">COBOL</option>
-		<option value="ColdFusion">ColdFusion</option>
-		<option value="Erlang">Erlang</option>
-		<option value="Fortran">Fortran</option>
-		<option value="Groovy">Groovy</option>
-		<option value="Haskell">Haskell</option>
-		<option value="Java">Java</option>
-		<option value="JavaScript">JavaScript</option>
-		<option value="JavaScript">Jon Shin</option>
-		<option value="Lisp">Lisp</option>
-		<option value="Perl">Perl</option>
-		<option value="PHP">PHP</option>
-		<option value="Python">Python</option>
-		<option value="Ruby">Ruby</option>
-		<option value="Scala">Scala</option>
-		<option value="Scheme">Scheme</option>
-	</select>
-</div>
-<!-- <button id="toggle">Show underlying select</button> -->
+	<div class="container">
+		<div class="row">
 
+			<section class="content">
+				<h1>Table Filter</h1>
+				<div class="col-md-8 col-md-offset-2">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="pull-right">
+								<div class="btn-group">
+									<button type="button" class="btn btn-success btn-filter"
+										data-target="pagado">검색결과</button>
+									<button type="button" class="btn btn-warning btn-filter"
+										data-target="pendiente">추천</button>
+									<button type="button" class="btn btn-danger btn-filter"
+										data-target="cancelado">찜목록</button>
+									<button type="button" class="btn btn-default btn-filter"
+										data-target="all">전체</button>
+								</div>
+							</div>
+							<div class="table-container" >
+								<table class="table table-filter">
+									<tbody>
+										<tr data-status="pagado">
+											<td>
+												<div class="ckbox">
+													<input type="checkbox" id="checkbox1">
+													<label for="checkbox1"></label>
+												</div>
+											</td>
+											<td>
+												<a href="#" class="star">
+													<i class="fas fa-star"></i>
+												</a>
+											</td>
+											<td>
+												<div class="media">
+													<a href="#" class="pull-left">
+														<img src="img/treethum.png" class="media-photo">
+													</a>
+													<div class="media-body">
+														<span class="media-meta pull-right">Febrero 13, 2016</span>
+														<h4 class="title">
+															Lorem Impsum
+															<span class="pull-right pagado">(검색결과)</span>
+														</h4>
+														<p class="summary">Ut enim ad minim veniam, quis nostrud
+															exercitation.../Ut enim ad minim veniam, quis nostrud
+															exercitation...Ut enim ad minim veniam, quis nostrud
+															exercitation.../Ut enim ad minim veniam, quis nostrud
+															exercitation...</p>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr data-status="pendiente">
+											<td>
+												<div class="ckbox">
+													<input type="checkbox" id="checkbox3">
+													<label for="checkbox3"></label>
+												</div>
+											</td>
+											<td>
+												<a href="javascript:;" class="star">
+													<i class="fas fa-star"></i>
+												</a>
+											</td>
+											<td>
+												<div class="media">
+													<a href="#" class="pull-left">
+														<img src="img/logo.png" class="media-photo">
+													</a>
+													<div class="media-body">
+														<span class="media-meta pull-right">Febrero 13, 2016</span>
+														<h4 class="title">
+															Lorem Impsum
+															<span class="pull-right pendiente">(추천)</span>
+														</h4>
+														<p class="summary">Ut enim ad minim veniam, quis nostrud
+															exercitation...</p>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr data-status="cancelado">
+											<td>
+												<div class="ckbox">
+													<input type="checkbox" id="checkbox2">
+													<label for="checkbox2"></label>
+												</div>
+											</td>
+											<td>
+												<a href="javascript:;" class="star">
+													<i class="fas fa-star"></i>
+												</a>
+											</td>
+											<td>
+												<div class="media">
+													<a href="#" class="pull-left">
+														<img src="/img/tree.png" class="media-photo">
+													</a><div class="media-body">
+														<span class="media-meta pull-right">Febrero 13, 2016</span>
+														<h4 class="title">
+															Lorem Impsum
+															<span class="pull-right cancelado">(찜목록)</span>
+														</h4>
+														<p class="summary">Ut enim ad minim veniam, quis nostrud
+															exercitation...</p>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr data-status="pagado" class="selected">
+											<td>
+												<div class="ckbox">
+													<input type="checkbox" id="checkbox4" checked>
+													<label for="checkbox4"></label>
+												</div>
+											</td>
+											<td>
+												<a href="javascript:;" class="star star-checked">
+													<i class="fas fa-star"></i>
+												</a>
+											</td>
+											<td>
+												<div class="media">
+													<a href="#" class="pull-left">
+														<img src="img/apeach-popo.gif" class="media-photo">
+													</a>
+													<div class="media-body">
+														<span class="media-meta pull-right">Febrero 13, 2016</span>
+														<h4 class="title">
+															Lorem Impsum
+															<span class="pull-right pagado">(검색결과)</span>
+														</h4>
+														<p class="summary">Ut enim ad minim veniam, quis nostrud
+															exercitation...</p>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr data-status="pendiente">
+											<td>
+												<div class="ckbox">
+													<input type="checkbox" id="checkbox5">
+													<label for="checkbox5"></label>
+												</div>
+											</td>
+											<td>
+												<a href="javascript:;" class="star">
+													<i class="fas fa-star"></i>
+												</a>
+											</td>
+											<td>
+												<div class="media">
+													<a href="#" class="pull-left">
+														<img src="img/apeach_eating.gif" class="media-photo">
+													</a>
+													<div class="media-body">
+														<span class="media-meta pull-right">Febrero 13, 2016</span>
+														<h4 class="title">
+															Lorem Impsum
+															<span class="pull-right pendiente">(추천)</span>
+														</h4>
+														<p class="summary">Ut enim ad minim veniam, quis nostrud
+															exercitation...</p>
+													</div>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<!-- <div class="content-footer">
+						<p>
+							Page © - 2016 <br>
+							Powered By <a href="https://www.facebook.com/tavo.qiqe.lucero" target="_blank">TavoQiqe</a>
+						</p>
+					</div> -->
+				</div>
+			</section>
+
+		</div>
+	</div>
+	<script>
+		$(document).ready(function () {
+
+			$('.star').on('click', function () {
+				$(this).toggleClass('star-checked');
+			});
+
+			$('.ckbox label').on('click', function () {
+				$(this).parents('tr').toggleClass('selected');
+			});
+
+			$('.btn-filter').on('click', function () {
+				var $target = $(this).data('target');
+				if ($target != 'all') {
+					$('.table tr').css('display', 'none');
+					$('.table tr[data-status="' + $target + '"]').fadeIn('slow');
+				} else {
+					$('.table tr').css('display', 'none').fadeIn('slow');
+				}
+			});
+
+		});
+	</script>
 
 </body>
 </html>
+
+<!-- <td colspan="3" rowspan="2" style="max-width: 300px; word-break:break-all; white-space: normal; overflow: auto;">contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent</td> -->

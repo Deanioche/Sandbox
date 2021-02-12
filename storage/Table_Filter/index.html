@@ -30,6 +30,7 @@
 									<button type="button" class="btn btn-default btn-filter"
 										data-target="all">전체</button>
 									<button type="button" class="btn btn-add">추가</button>
+									<button type="button" class="btn btn-compare">비교</button>
 								</div>
 							</div>
 							<div class="table-container">
@@ -38,12 +39,12 @@
 										<tr data-status="pendiente">
 											<td>
 												<div class="ckbox">
-													<input type="checkbox" id="checkbox0">
+													<input type="checkbox" id="checkbox0" onclick="$(this).checkToggle(this)">
 													<label for="checkbox0"></label>
 												</div>
 											</td>
 											<td>
-												<a href="javascript:;" class="star">
+												<a href="#" class="star" id="star0" onclick="$(this).starToggle(this)">
 													<i class="fas fa-star"></i>
 												</a>
 											</td>
@@ -69,6 +70,21 @@
 							</div>
 						</div>
 					</div>
+
+					<div class="compare-container">
+						<div class="compare-list-Top">
+							<a class="toggleBtn"><i class="fas fa-angle-down"></i></a>
+						</div>
+						<div class="compare-list">
+							<div class="content">
+								<img src="./zzang.gif" alt="">
+								<p class="title">
+									Lorem Impsum
+								</p>
+							</div>
+						</div>
+					</div>
+					
 					<!-- <div class="content-footer">
 						<p>
 							Page © - 2016 <br>

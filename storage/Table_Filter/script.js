@@ -1,17 +1,43 @@
+let compare_list = [];
+
 $(document).ready(function () {
 
-    
-$.fn.starToggle = function(){
+    // ######## 스타 토글 ########
+    $.fn.starToggle = function (txt) {
+        $(this).toggleClass('star-checked');
+        console.log("className : \n" + txt.className);
+        console.log("id :" + txt.id);
+    };
 
-    $(this).toggleClass('star-checked');
-    
-};
+    // ######## 비교 토글 체크박스 ########
+    $.fn.checkToggle = function (info) {
+        $(this).toggleClass('selected');
 
-    $('.ckbox label').on('click', function () {
-        $(this).parents('tr').toggleClass('selected');
-        console.log('checkbox');
-    });
+        if (info.className.includes("selected")) {
 
+            if (!compare_list.includes(info.id)) {
+                $.fn.addToCompareList(info.id);
+
+            } else {
+                console.log(info.id + ': unchecked');
+                compare_list.pop(info.id);
+            }
+
+            console.log("# array : " + compare_list);
+        };
+    }
+    // ######## 비교리스트에 유닛 추가 ########
+    $.fn.addToCompareList = function (id) {
+        compare_list.push(id);
+        console.log("# \"" + id + "\" has been added to array : compare_list");
+
+        var name = $("#" + id).parent().prop('tagName');
+        console.log(name);
+
+        $('.compare-container .content')
+    }
+
+    // ######## 리스트 카테고리 전환 효과 ########
     $('.btn-filter').on('click', function () {
         var $target = $(this).data('target');
         if ($target != 'all') {
@@ -22,6 +48,17 @@ $.fn.starToggle = function(){
         }
     });
 
+    // 로컬스토리지 넣기 https://www.zerocho.com/category/HTML/post/5918515b1ed39f00182d3048
+    $('.btn-compare').click(function () {
+        $('.compare-container').toggleClass('active');
+
+        // for(var i = 0; i < compare_list.length; i++) {
+        //     console.log(compare_list[i]);   
+        // }
+    });
+
+
+    // ######## 리스트에 항목 추가 펑션 ########
     var unitNum = 1;
 
     $('.btn-add').click(function () {
@@ -30,12 +67,12 @@ $.fn.starToggle = function(){
             "<tr data-status='pagado'>" +
             "<td>" +
             "<div class='ckbox'>" +
-            "<input type='checkbox' id='checkbox" + unitNum + "'>" +
+            "<input type='checkbox' id='checkbox" + unitNum + "' onclick='$(this).checkToggle(this)'>" +
             "<label for='checkbox" + unitNum + "'></label>" +
             "</div>" +
             "</td>" +
             "<td>" +
-            "<a href='#' onclick='$(this).starToggle()' class='star star-checked' id='star" + unitNum + "'>" +
+            "<a href='#' onclick='$(this).starToggle(this)' class='star' id='star" + unitNum + "'>" +
             "<i class='fas fa-star'></i>" +
             " </a>" +
             "</td>" +
@@ -61,21 +98,8 @@ $.fn.starToggle = function(){
 
         $('.table tbody').append(unit);
 
-
     });
 
+
+
 });
-
-
-
-
-// function star() {
-//     starToggleTrg();
-//     console.log('123');
-// }
-
-// $('.star').on('click', function (event) {
-//     console.log('star');
-//     $(this).toggleClass('star-checked');
-//     // event.target.toggleClass('star-checked');
-// });

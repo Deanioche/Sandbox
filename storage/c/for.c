@@ -1,4 +1,6 @@
 #include <stdio.h>
+int input();
+int add(int x, int y);
 
 int main()
 {
@@ -12,5 +14,28 @@ int main()
         printf("/");
     }
 
+    int result = add(3, 7);
+
+    printf("\n Result = %d", result);
+    printf("\n Result2 = %d", add(30, 10));
+
+    printf("\n input num :");
+    int num = input();
+
+    // scanf("%d", num); 작동 안됨
+
+    printf("\n num + 10 : %d", (num + 10));
+
     return 0;
+}
+
+int add(int x, int y)
+{
+    return x + y;
+}
+
+int input() {
+    int x = 1;
+    //scanf("%d", &x);
+    return x;
 }

@@ -54,3 +54,25 @@ print("뒤 7자리 ( 뒤에부터 ) : " + jumin[-7:]) # 맨 뒤에서 7번째부
 
 ''' 문자열 처리 '''
 
+
+python = "Python is Amazing"
+print(python.lower())
+print(python.upper())
+print(python[0].isupper()) # True
+print(len(python)) # len 길이 17
+print(python.replace("Python", "Flutter")) # replace
+
+index = python.index("n")
+print(index) # n은 5번 인덱스
+
+index = python.index("n", index + 1) # 두번째 n을 찾음 15
+print(index)
+
+print(python.find("응애")) # index()와 기능이 같지만 문자를 못찾으면 -1 반환 
+
+# index = python.index("응애") # index()는 문자를 못찾으면 에러
+
+print(python.count("n")) # 문자열 python에 n이 몇개있나
+
+
+# 01:01:32 continue...

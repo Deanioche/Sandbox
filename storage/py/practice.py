@@ -51,7 +51,15 @@ print(num)  # 3
 
 # 36:28 continue
 
+print(abs(-5)) # 5
+print(pow(4,3)) # 64
+print(max(2, 12 , 5)) # 12
+print(min(2, 12 , 5)) # 2
+print(round(3.14)) # 3
+print(round(4.99)) # 반올림 5
 
+from math import *
 
-
-
+print(floor(4.99)) # 내림 4
+print(ceil(4.99)) # 올림 5
+print(sqrt(4.99)) # 제곱근 2.233830790368868

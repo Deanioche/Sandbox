@@ -76,3 +76,4 @@ print(python.count("n")) # 문자열 python에 n이 몇개있나
 
 
 # 01:01:32 continue...
+

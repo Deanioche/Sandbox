@@ -1,0 +1,9 @@
+table tr{
+    display: flex;
+}
+
+table td{
+    display: flex;
+    width: 100px;
+    border: 1px solid;
+}

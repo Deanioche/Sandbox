@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#999999"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/target"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="#00D8FF"
+        android:text="TARGET"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/target"
+        android:background="#1DDB16"
+        android:text="LEFT"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/target"
+        android:background="#1DDB16"
+        android:text="RIGHT"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/target"
+        android:background="#1DDB16"
+        android:text="TOP"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/target"
+        android:background="#1DDB16"
+        android:text="BOTTOM"
+        android:textSize="20sp" />
+
+</RelativeLayout>

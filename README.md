@@ -1,4 +1,5 @@
-# 여기엔 마크업 문법 정리할것
+<p><object data=" ★★★ " type="application/pdf" width="100%" height="600">
+<param name="src" value=" ★★★ " /> </object></p>
 
 ### # 메인페이지 fullpage 플러그인 작업
         전체 페이지에 div id="fullpage" 걸고

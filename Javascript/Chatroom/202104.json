@@ -1,0 +1,79 @@
+[
+  {
+    "id": 0,
+    "date": 20210331,
+    "task": {
+      "working_on": [],
+      "done": [
+        {
+          "tag": "Python",
+          "title": "Python 인강",
+          "content": "01:01:32 / 6:00:00\n랜덤, 슬라이싱, 문자열 처리"
+        },
+        {
+          "tag": "JSON",
+          "title": "JSON 연습용 chatbox 제작",
+          "content": "JSON 파일 export 기능필요"
+        }
+      ],
+      "error": [
+        {
+          "tag": "JS",
+          "title": "compare_Array.some(function (data) { ... } 안에서 외부값으로 비교를 못하는 문제",
+          "content": "내부함수는 promise()를 사용해서 빼내올 수 있다."
+        },
+        {
+          "tag": "SimpleWebBoard",
+          "title": "c서버 실행시, Controller의 @RequestParam(value=\"/\") 로 받는 index 메소드가 3번 실행되는 이유???",
+          "content": "미해결"
+        },
+        {
+          "tag": "JS",
+          "title": "compare_Array.some(function (data) { ... } 안에서 외부값으로 비교를 못하는 문제",
+          "content": "내부함수는 promise()를 사용해서 빼내올 수 있다."
+        },
+        {
+          "tag": "axios",
+          "title": " axios 데이터 통신 오류",
+          "content": " \"data: 'str123=' + str123\" get 방식 url주소 형식으로 보낼 수 있다."
+        },
+        {
+          "tag": "vscode",
+          "title": "C언어 scanf 작동안됨",
+          "content": "output에서는 입력을 할 수 없다. terminal에서 실행시켜야 한다."
+        }
+      ],
+      "memo": [
+        {
+          "tag": "SimpleWebBoard",
+          "title": "서버 실행전 DB commit 되있는지 확인할것.",
+          "content": "서버 실행전 DB commit 되있는지 확인할것."
+        },
+        {
+          "tag": "ORACLE",
+          "title": "execute multiple query",
+          "content": "서버 실행전 DB commit 되있는지 확인할것."
+        },
+        {
+          "tag": "SimpleWebBoard",
+          "title": "서버 실행전 DB commit 되있는지 확인할것.",
+          "content": "서버 실행전 DB commit 되있는지 확인할것."
+        }
+      ],
+      "todo": [
+        {
+          "id": 0,
+          "content": "[lecture] 안드로이드 프로그래밍 듣기"
+        },
+        {
+          "id": 1,
+          "content": "[lecture] C프로그래밍 듣기"
+        },
+        {
+          "id": 2,
+          "content": "[sleed] 수면 시간 기록하기"
+        }
+      ]
+    }
+  }
+]

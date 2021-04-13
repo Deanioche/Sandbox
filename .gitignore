@@ -1,0 +1,5 @@
+**/*.exe
+**/venv/
+**/.idea/
+**/.vscode/
+**/*.iml

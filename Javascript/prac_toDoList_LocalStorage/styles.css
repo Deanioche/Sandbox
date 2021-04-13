@@ -1,0 +1,8 @@
+body {
+  font-family: sans-serif;
+}
+
+input[type=text] {
+  width: 200px;
+  padding-left: 15px;
+}

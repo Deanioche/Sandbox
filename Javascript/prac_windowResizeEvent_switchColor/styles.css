@@ -1,0 +1,18 @@
+body {
+  font-family: sans-serif;
+  background-color: rgb(53, 124, 255);
+}
+
+h1 {
+  color: white;
+}
+
+.small {
+  background-color: rgb(53, 124, 255);
+}
+.middle {
+  background-color: rgb(123, 59, 196);
+}
+.big {
+  background-color: rgb(252, 225, 109);
+}

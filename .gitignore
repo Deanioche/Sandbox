@@ -3,3 +3,10 @@
 **/.idea/
 **/.vscode/
 **/*.iml
+**/.metadata/
+**/bin/
+**/.settings/
+**/*.classpath
+**/*.DS_Store
+**/*.project
+**/*.springBeans

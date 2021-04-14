@@ -26,18 +26,12 @@ http://youtube.com 일 때
 
 '''
 
-url = "http://naver.com"
-# url = "https://google.com"
 
-url2 = url[url.index("//") + 2:]
-
-print("url2 : " + url2)
-
-url3 = url2[:url2.index(".")]
-
-print(url3)
-
-key = str(url3[:3]) + str(len(url3)) + str(url3.count("e")) + "!"
-
-print(key)
-
+url = "https://naver.com"
+url = "https://google.com"
+url = "https://egloo.com"
+url = "https://efunket.com"
+r1 = url[url.index("/") + 2:]
+r2 = r1[:r1.index(".")]
+r3 = r2[:3] + str(len(r2))+ str(r2.count("e")) + "!"
+print(f"{url} 의 비밀번호는 {r3} 입니다")

@@ -91,7 +91,7 @@ function receiveData1(data) {
   const chat = createMessageTag(data.msg, data.sender, "left");
   $(".chat_box2 .chat_log").append(chat);
   scrollchatbox(2);
-  console.log(data.time);
+  //console.log(data.time);
 }
 
 // 1번 데이터 수신
@@ -100,7 +100,7 @@ function receiveData2(data) {
 
   $(".chat_box1 .chat_log").append(chat);
   scrollchatbox(1);
-  console.log(data.time);
+  //console.log(data.time);
 }
 
 // 메세지 틀짜기
@@ -121,9 +121,9 @@ function scrollchatbox(num) {
     $(".chat_box" + num + " .chat_log").prop("scrollHeight")
   );
 
-  $(".showJson").scrollTop(
-    $(".showJson").prop("scrollHeight")
-  );
+  var log = document.querySelector(".chat_box" + num);
+  log.scrollTop = log.scrollHeight;
+
 }
 
 function getTime() {
@@ -154,7 +154,9 @@ function appendToJSON(data) {
   log += jsonData[jsonData.length - 1] + "\n";
 
   $(".showJson").text(log);
-  //console.log(jsonData);
+
+  var logPanel = document.querySelector(".showJson");
+  logPanel.scrollTop = logPanel.scrollHeight;
 }
 
 /// JSON 버튼 동작
@@ -168,4 +170,5 @@ document.querySelector(".show_hide").addEventListener("click", function (e) {
     json_content.style.opacity = "0";
   }
   json_content.classList.toggle("hidden");
+
 });

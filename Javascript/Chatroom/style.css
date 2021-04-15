@@ -120,5 +120,8 @@ li.left {
     transition: 1s;
     font-size: 10px;
     position: relative;
+    white-space: pre-line;
+    height: 80vh;
+    overflow-y: auto;
 }
 

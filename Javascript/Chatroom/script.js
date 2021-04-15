@@ -1,5 +1,6 @@
 // 채팅로그를 기록하는 json 전체 데이터
 let jsonData = [];
+var log = ""
 
 // init()
 function init() {
@@ -119,6 +120,10 @@ function scrollchatbox(num) {
   $(".chat_box" + num + " .chat_log").scrollTop(
     $(".chat_box" + num + " .chat_log").prop("scrollHeight")
   );
+
+  $(".showJson").scrollTop(
+    $(".showJson").prop("scrollHeight")
+  );
 }
 
 function getTime() {
@@ -144,9 +149,11 @@ init();
 // 로그 기록
 function appendToJSON(data) {
   // 채팅기록을 전체 데이터에 추가
-  jsonData.push(data);
+  jsonData.push("[ " + data.sender + " ] (" + data.time + ") : " + data.msg);
 
-  $(".showJson").text(JSON.stringify(jsonData));
+  log += jsonData[jsonData.length - 1] + "\n";
+
+  $(".showJson").text(log);
   //console.log(jsonData);
 }
 

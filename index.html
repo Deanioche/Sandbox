@@ -1,0 +1,69 @@
+<!-- HTML에서 메세지 입력
+JS에서 JSON파일에 기록 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Javascript\Chatroom\style.css" />
+    <title>JSON practice</title>
+  </head>
+  <body>
+    <div class="chat_box1">
+      <div class="header">CHAT BOX1</div>
+      <div class="chat_log">
+        <ul>
+          <!-- 동적 생성 -->
+        </ul>
+      </div>
+      <div class="chat-input">
+        <div class="nickname-box">
+          <div class="title">닉네임</div>
+          <input type="text" placeholder="닉네임 입력" value="야옹이"/>
+        </div>
+        <textarea placeholder="메세지 입력 후 Enter"></textarea>
+      </div>
+    </div>
+
+    <div class="chat_box2">
+      <div class="header">CHAT BOX2</div>
+      <div class="chat_log">
+        <ul>
+          <!-- 동적 생성 -->
+
+        </ul>
+      </div>
+      <div class="chat-input">
+        <div class="nickname-box">
+          <div class="title">닉네임</div>
+          <input type="text" placeholder="닉네임 입력" value="댕댕이"/>
+        </div>
+        <textarea placeholder="메세지 입력 후 Enter"></textarea>
+      </div>
+    </div>
+
+    <button class="show_hide"> Chat log </button>
+    <div class="showJson hidden">
+     
+  </div>
+
+    <!-- format -->
+
+    <div class="chat format">
+      <ul>
+        <li>
+          <div class="sender">
+            <span>으잉이</span>
+          </div>
+          <div class="message">
+            <span>응애</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <script src="Javascript\Chatroom\jquery-3.6.0.min.js"></script>
+    <script src="Javascript\Chatroom\script.js"></script>
+  </body>
+</html>

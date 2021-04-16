@@ -25,6 +25,7 @@ public class MainActivity extends Activity {
         findViewById(R.id.longmsg).setOnClickListener(mClickListener);
         findViewById(R.id.count).setOnClickListener(mClickListener);
         findViewById(R.id.customview).setOnClickListener(mClickListener);
+        findViewById(R.id.mymsg).setOnClickListener(mClickListener);
     } // onCreate
 
     Button.OnClickListener mClickListener = new Button.OnClickListener()
@@ -57,6 +58,17 @@ public class MainActivity extends Activity {
                     t2.setView(linear);
                     t2.show();
                     break;
+                case R.id.mymsg:
+                    LinearLayout myLinear =
+                            (LinearLayout) View.inflate(MainActivity.this, R.layout.my_view, null);
+                    Toast t3 = new Toast(MainActivity.this);
+                    t3.setView(myLinear);
+                    t3.show();
+                    String mytxt = "응애~";
+                    count += 100;
+                    Toast.makeText(MainActivity.this, mytxt, Toast.LENGTH_SHORT).show();
+                    break;
+
             } //of switch
         } //of onClick
     }; //of OnClickListener

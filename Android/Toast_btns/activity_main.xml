@@ -37,6 +37,18 @@
         android:layout_height="wrap_content"
         android:text="my view" />
 
+    <Button
+        android:id="@+id/mysound"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="my sound" />
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textColor="#0100FF" />
 
 </LinearLayout>
 

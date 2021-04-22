@@ -1,7 +1,9 @@
 package com.android.eggtimer;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -40,10 +42,11 @@ public class MainActivity extends AppCompatActivity {
         timerBtn = findViewById(R.id.timerBtn);
 
         progresBar.setMax(600); // 10mins maximum
-        progresBar.setProgress(300); // 5mins
-        timerText.setText("5:00");
+        progresBar.setProgress(3); // 5mins
+        timerText.setText("0:03");
 
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.sos_morse_code);
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.whistling);
+        System.out.println(mediaPlayer.getDuration());
 
         progresBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -76,17 +79,28 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onTick(long millisUntilFinished) {
-                    System.out.println(millisUntilFinished);
-                    updateTimer((int) (millisUntilFinished / 1000));
 
+                    System.out.println(millisUntilFinished/1000);
+                    updateTimer((int) (millisUntilFinished / 1000));
                 }
 
                 @Override
                 public void onFinish() {
-                    Log.i("123","end");
                     mediaPlayer.start();
 
-                    resetTimer();
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setTitle("Finish!")
+                            .setMessage("Timer Done!")
+                            .setIcon(R.drawable.ic_launcher_background)
+                            // 버튼이 Positive든 negative 든 Neutral이든 Alert가 꺼지는건 같으므로 동작부분을 null로 넣어도 됨 (닫기버튼으로써 동작)
+                            .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    resetTimer();
+                                }
+                            })
+                            .setCancelable(false) // 뒤로가기 버튼 비활성화, Alert의 버튼을 통해서만 창을 닫을 수 있다.
+                            .show();
                 }
             }.start();
         } else {

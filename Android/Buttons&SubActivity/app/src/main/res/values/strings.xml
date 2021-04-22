@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">My App이라용</string>
+    <string name="myText">My App이라용!!</string>
+    <string name="myBtn">버튼이얌</string>
+    <string name="myspinnerName">뭐 하나 골라봐</string>
+
+    <string-array name="array">
+        <item>Yaho~1</item>
+        <item>Yaho~2</item>
+        <item>Yaho~3</item>
+        <item>Yaho~4</item>
+        <item>Yaho~5</item>
+        <item>Yaho~6</item>
+        <item>Yaho~7</item>
+        <item>Yaho~8</item>
+        <item>Yaho~9</item>
+        <item>Yaho~10</item>
+        <item>Yaho~11</item>
+        <item>Yaho~12</item>
+    </string-array>
+</resources>

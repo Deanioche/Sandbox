@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/shortmsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Short Message" />
+
+    <Button
+        android:id="@+id/longmsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Long Message" />
+
+    <Button
+        android:id="@+id/count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="count" />
+
+    <Button
+        android:id="@+id/customview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="custom view" />
+
+    <Button
+        android:id="@+id/mymsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="my view" />
+
+    <Button
+        android:id="@+id/mysound"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="my sound" />
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#0100FF"
+        android:textSize="10sp" />
+
+    <Button
+        android:id="@+id/call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="mOnClick"
+        android:text="SubAct" />
+
+    <EditText
+        android:id="@+id/telText"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="phone" />
+
+    <Button
+        android:id="@+id/callBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="call" />
+
+    <Spinner
+        android:id="@+id/myspinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dialog" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btnAlert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/myBtn" />
+
+        <Button
+            android:id="@+id/btnAlert2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alert버튼2"
+            android:layout_marginLeft="10sp"/>
+
+    </GridLayout>
+</LinearLayout>
+

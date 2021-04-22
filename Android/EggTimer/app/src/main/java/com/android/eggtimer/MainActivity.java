@@ -110,17 +110,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateTimer(int secLeft) {
 
-        timerTranslate();
+        timerTranslate(secLeft);
         timerText.setText(secLeft / 60 + ":" + String.format("%02d", secLeft % 60));
 
     }
 
-    public void timerTranslate() {
+    public void timerTranslate(int secLeft) {
 
-        if (progresBar.getProgress() == 600) {
+        if (secLeft == 600) {
             timerText.setTranslationX(-40f);
             moved = true;
-        } else if (progresBar.getProgress() < 600 && moved) {
+        } else if (secLeft < 600 && moved) {
             timerText.setTranslationX(0);
             moved = false;
         }

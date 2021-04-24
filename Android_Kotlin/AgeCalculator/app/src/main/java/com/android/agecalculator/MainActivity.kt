@@ -54,15 +54,25 @@ class MainActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.btnDatePicker).setText("$selectedDate") // 버튼 텍스트를 생일날짜로
 
                 val sdf = SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SS")
-                val timeSelected = sdf.parse("$selectedDate 00:00:00.00")
+                sdf.timeZone = TimeZone.getTimeZone("Asia/Seoul")
+
+                val calSelected = Calendar.getInstance()
+                calSelected.time = sdf.parse("$selectedDate 00:00:00.00")
 
                 findViewById<TextView>(R.id.hideText).visibility = TextView.VISIBLE
 
-                println("Date() : ${Date()}")
-                println("Date() : ${Date(0).time}")
-                println("timeSelected : $timeSelected")
+                val calNow = Calendar.getInstance()
+                calNow.time = Date()
 
-                findViewById<TextView>(R.id.lifeTime).text = "${Date().time - timeSelected.time - Date(0).time}"
+                println("calSelected : ${sdf.format(calSelected.time)}")
+                println("currentTimeMillis : ${sdf.format(System.currentTimeMillis())}")
+
+
+                //println("Calendar() : ${Calendar.getInstance(TimeZone.getTimeZone("Asia/Seoul"))}")
+               // println("Calendar().time : ${(Calendar.getInstance(TimeZone.getTimeZone("Asia/Seoul"))).time}") // 16:58:53
+                //println("timeSelected : $calNow")
+
+                //findViewById<TextView>(R.id.lifeTime).text = "${Date().time - calNow.time}"
 
 
                 //val lifeInYear = sdf.format(selectedDate)

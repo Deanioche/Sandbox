@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
             override fun run() {
 
                 // Insert code to be run every second.
-                findViewById<TextView>(R.id.todayDate).setText(sdf.format(Date()))
+                findViewById<TextView>(R.id.todayDate).text = sdf.format(Date())
                 handler.postDelayed(this, 10) //run method run() every 1s.
             }
         }
@@ -46,38 +46,52 @@ class MainActivity : AppCompatActivity() {
         val month = myCalendar.get(Calendar.MONTH) + 1
         val day = myCalendar.get(Calendar.DAY_OF_MONTH)
 
-        DatePickerDialog(
+        val dpd = DatePickerDialog(
             this,
-            DatePickerDialog.OnDateSetListener { v, selectedYear, selectedMonth, selectedDayOfMonth ->
+            DatePickerDialog.OnDateSetListener { _, selectedYear, selectedMonth, selectedDayOfMonth ->
 
-                val selectedDate = "$selectedYear/$selectedMonth/$selectedDayOfMonth"
-                findViewById<TextView>(R.id.btnDatePicker).setText("$selectedDate") // 버튼 텍스트를 생일날짜로
+                // 선택된 날짜
+                val selectedDate = "$selectedYear/${selectedMonth +1}/$selectedDayOfMonth"
+                // 버튼 텍스트 변경
+                findViewById<TextView>(R.id.btnDatePicker).text = "$selectedDate"
 
-                val sdf = SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SS")
-                sdf.timeZone = TimeZone.getTimeZone("Asia/Seoul")
+                val sdf = SimpleDateFormat( "yyyy/MM/dd")
+                //sdf.timeZone = TimeZone.getTimeZone("Asia/Seoul")
 
                 val calSelected = Calendar.getInstance()
-                calSelected.time = sdf.parse("$selectedDate 00:00:00.00")
+                calSelected.time = sdf.parse("$selectedDate")
+
+                val calNow = Calendar.getInstance()
+                //calNow.timeZone = TimeZone.getTimeZone("Asia/Seoul")
+
+                val cal1970 = Calendar.getInstance()
+                cal1970.timeInMillis = 0
 
                 findViewById<TextView>(R.id.hideText).visibility = TextView.VISIBLE
 
-                val calNow = Calendar.getInstance()
-                calNow.time = Date()
+                calNow.set(Calendar.HOUR_OF_DAY, 0)
+                calNow.set(Calendar.MINUTE, 0)
+                calNow.set(Calendar.SECOND, 0)
+                calNow.set(Calendar.MILLISECOND, 0)
 
-                println("calSelected : ${sdf.format(calSelected.time)}")
-                println("currentTimeMillis : ${sdf.format(System.currentTimeMillis())}")
+                val calDiff = Calendar.getInstance()
 
+                calDiff.timeInMillis = calNow.timeInMillis - calSelected.timeInMillis
 
-                //println("Calendar() : ${Calendar.getInstance(TimeZone.getTimeZone("Asia/Seoul"))}")
-               // println("Calendar().time : ${(Calendar.getInstance(TimeZone.getTimeZone("Asia/Seoul"))).time}") // 16:58:53
-                //println("timeSelected : $calNow")
+                val diffYear = if((calDiff.get(Calendar.YEAR) - 1970) <= 1){ "${(calDiff.get(Calendar.YEAR) - 1970)} year "} else {"${(calDiff.get(Calendar.YEAR) - 1970)} years" }
+                val diffMonth = if(calDiff.get(Calendar.MONTH) <= 1) {"${calDiff.get(Calendar.MONTH)} month"} else {"${calDiff.get(Calendar.MONTH)} months" }
+                val diffDay = if((calDiff.get(Calendar.DAY_OF_MONTH) - 1) <= 1){ "${calDiff.get(Calendar.DAY_OF_MONTH) - 1} day" } else {"${calDiff.get(Calendar.DAY_OF_MONTH) - 1} days"}
 
-                //findViewById<TextView>(R.id.lifeTime).text = "${Date().time - calNow.time}"
+                val timeNow = Calendar.getInstance()
+                timeNow.timeInMillis = System.currentTimeMillis()
 
+                val diffHour = if(timeNow.get(Calendar.HOUR_OF_DAY) <= 1){ "${timeNow.get(java.util.Calendar.HOUR_OF_DAY)} hour" }else {"${timeNow.get(java.util.Calendar.HOUR_OF_DAY)} hours"}
+                val diffMinute = if(timeNow.get(Calendar.MINUTE) <= 1){ "${timeNow.get(Calendar.MINUTE)} minute"} else {"${timeNow.get(Calendar.MINUTE)} minutes"}
+                val diffSecond = if(timeNow.get(Calendar.SECOND) <= 1){ "${timeNow.get(Calendar.SECOND)} second"} else {"${timeNow.get(Calendar.SECOND)} seconds"}
 
-                //val lifeInYear = sdf.format(selectedDate)
+                findViewById<TextView>(R.id.lifeTime).text = "$diffYear \n$diffMonth \n$diffDay \n$diffHour \n$diffMinute \n$diffSecond"
 
-                //findViewById<TextView>(R.id.lifeInYear).setText(lifeInYear)
+                findViewById<TextView>(R.id.carryOn).visibility = TextView.VISIBLE
 
                 // https://developer.android.com/reference/java/text/SimpleDateFormat
 
@@ -90,17 +104,14 @@ class MainActivity : AppCompatActivity() {
                 val currentDate = sdf.parse(sdf.format(System.currentTimeMillis())) // 현재시간 ms 저장
 
                 val currentDateToMinutes = currentDate!!.time / 60000 //
-
-                val differenceMinutes = currentDateToMinutes - selectedDateInMinute
 */
-
-
-                //findViewById<TextView>(R.id.ageInMinutes).setText(differenceMinutes.toString())
-
             },
             year,
             month,
             day
-        ).show()
+        )
+
+        dpd.datePicker.maxDate = Date().time // 이전 날짜만 선택하도록 제한 + 9시간  - 54000000
+        dpd.show()
     }
 }

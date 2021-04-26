@@ -13,7 +13,7 @@ int main(int argc, char const *argv[])
    pa[4] = "0";
 
    for(int i = 0; i < 4; i++){
-       printf("pa[%d] : %d (%d)\n",i , pa[i], (pa[i+1] - pa[i]));
+       printf("pa[%d] : %d (%d) = \"%s\"\n",i , pa[i], (pa[i+1] - pa[i]), pa[i]);
    }
 
     //pa[0] : 4214884 (12) 

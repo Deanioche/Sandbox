@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         handler.post(run)
     }
 
-    fun clickDatePicker(v: View) {
+    private fun clickDatePicker(v: View) {
 
         val myCalendar = Calendar.getInstance()
         val year = myCalendar.get(Calendar.YEAR)
@@ -93,8 +93,6 @@ class MainActivity : AppCompatActivity() {
 
                 findViewById<TextView>(R.id.carryOn).visibility = TextView.VISIBLE
 
-                // https://developer.android.com/reference/java/text/SimpleDateFormat
-
                 //val theDate = sdf.parse(selectedDate) // parse된 문자열은 Date 객체로 변환되 담김.
 
                 /* val selectedDateInMinute =
@@ -115,3 +113,6 @@ class MainActivity : AppCompatActivity() {
         dpd.show()
     }
 }
+
+// https://developer.android.com/reference/java/text/SimpleDateFormat
+// https://www.udemy.com/course/android-kotlin-developer/learn/lecture/18558382#overview

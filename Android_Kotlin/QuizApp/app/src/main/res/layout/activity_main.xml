@@ -84,7 +84,7 @@
             android:text="START"
             android:textColor="@color/white"
             android:background="@drawable/button_effect"
-            android:textSize="20sp" />
+            android:textSize="25sp" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

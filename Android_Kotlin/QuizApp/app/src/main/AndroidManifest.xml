@@ -9,11 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QuizApp">
-        <activity android:name=".MainActivity"
+        <activity android:name=".QuestionActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme"
             android:windowSoftInputMode="adjustResize">
-<!--            https://developer.android.com/guide/topics/manifest/activity-element#wsoft-->
+
+            <!-- https://developer.android.com/guide/topics/manifest/activity-element#wsoft -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

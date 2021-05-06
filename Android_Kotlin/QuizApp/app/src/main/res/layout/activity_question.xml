@@ -72,7 +72,8 @@
             android:padding="15dp"
             android:textColor="#7A8089"
             android:textSize="18sp"
-            android:text="Apple"/>
+            android:text="Apple"
+            android:onClick="onClickAnswer"/>
 
         <TextView
             android:id="@+id/tv_option_two"
@@ -84,7 +85,8 @@
             android:padding="15dp"
             android:textColor="#7A8089"
             android:textSize="18sp"
-            android:text="Korea"/>
+            android:text="Korea"
+            android:onClick="onClickAnswer"/>
 
         <TextView
             android:id="@+id/tv_option_three"
@@ -96,7 +98,8 @@
             android:padding="15dp"
             android:textColor="#7A8089"
             android:textSize="18sp"
-            android:text="Argentina"/>
+            android:text="Argentina"
+            android:onClick="onClickAnswer"/>
 
         <TextView
             android:id="@+id/tv_option_four"
@@ -108,7 +111,8 @@
             android:padding="15dp"
             android:textColor="#7A8089"
             android:textSize="18sp"
-            android:text="Soviet"/>
+            android:text="Soviet"
+            android:onClick="onClickAnswer"/>
 
         <Button
             android:id="@+id/btn_submit"

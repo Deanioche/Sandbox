@@ -12,7 +12,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.android.quizapp.databinding.ActivityMainBinding
 
-class QuestionActivity : AppCompatActivity(){
+class QuestionActivity : AppCompatActivity(), View.OnClickListener {
 
     private var mCurrentPosition: Int = 1
     private var mQuestionsList: ArrayList<Question>? = null
@@ -25,6 +25,11 @@ class QuestionActivity : AppCompatActivity(){
         mQuestionsList = Constants.getQuestions()
 
         setQuestion()
+
+        findViewById<TextView>(R.id.tv_option_one).setOnClickListener(this)
+        findViewById<TextView>(R.id.tv_option_two).setOnClickListener(this)
+        findViewById<TextView>(R.id.tv_option_three).setOnClickListener(this)
+        findViewById<TextView>(R.id.tv_option_four).setOnClickListener(this)
 
     }
 
@@ -47,7 +52,6 @@ class QuestionActivity : AppCompatActivity(){
 
     }
 
-    // 옵션 선택 전
     private fun defaultOptionsView() {
         val options = ArrayList<TextView>()
         options.add(0, findViewById<TextView>(R.id.tv_option_one))
@@ -55,14 +59,14 @@ class QuestionActivity : AppCompatActivity(){
         options.add(2, findViewById<TextView>(R.id.tv_option_three))
         options.add(3, findViewById<TextView>(R.id.tv_option_four))
 
-        for (option in options) { // 전체 텍스트 Typeface와 background를 Default로
+        for (option in options) {
             option.setTextColor(Color.parseColor("#7A8089"))
             option.typeface = Typeface.DEFAULT
             option.background = ContextCompat.getDrawable(this, R.drawable.default_option_border_bg)
         }
     }
 
-    fun onClickAnswer(v: View?) {
+    override fun onClick(v: View?) {
         when (v?.id) {
             R.id.tv_option_one -> {
                 selectedOptionView(findViewById<TextView>(R.id.tv_option_one), 1)
@@ -82,9 +86,7 @@ class QuestionActivity : AppCompatActivity(){
     }
 
     private fun selectedOptionView(tv: TextView, selectedOptionNum: Int) {
-
-        defaultOptionsView() // 전체 default 초기화
-
+        defaultOptionsView()
         mSelectedOptionPosition = selectedOptionNum
         tv.setTextColor(Color.parseColor("#363A43"))
         tv.setTypeface(tv.typeface, Typeface.BOLD)

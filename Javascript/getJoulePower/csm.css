@@ -1,0 +1,9 @@
+td         {font-size:12px; font-family:±¼¸²; text-decoration:none; }
+font       {font-size:12px; font-family:±¼¸²; text-decoration:none; line-height:130%;}
+A:link,A:active,A:visited{text-decoration:none;FONT-SIZE:12PX;color:'#FFFF80';}
+A:hover {text-decoration:none; color:'ff9900'}
+font { font-size: 9pt; }
+.cnj_input {color:rgb(255,204,0); background-color:black;text-align:right; margin:1; padding-right:1; border-width:1; border-color:white; border-style:solid;}
+.cnj_btn {color:rgb(255,204,0); background-color:black;font-weight:normal;cursor:hand}
+.cnj_btn2 {color:lime; background-color:black;font-weight:bold;cursor:hand}
+.cnj_sel {color:#FFCC00; background-color:black;cursor:hand}

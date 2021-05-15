@@ -1,0 +1,166 @@
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=euc-kr">
+<title>총사모 BB탄 무게, 에너지 : 탄속, 유효사거리의 관계</title>
+<link rel='stylesheet' type='text/css' href='./csm.css'>
+<script language='javascript' src='./csm.js'></script>
+</head>
+
+<!--
+<body bgcolor="black" text="#FFCC00" link="blue" vlink="purple" alink="red" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onLoad="goforit();">
+-->
+<body bgcolor="black" text="#FFCC00" link="blue" vlink="purple" alink="red" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" onLoad="goforit();parent.resizeTo(500,700);" oncontextmenu="return false" onresize='parent.resizeTo(500,700);'>
+
+<form name="effective_range">
+
+<table border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="white" width="100%">
+
+<tr> 
+<td align="center" bgcolor="white" width="33%"><font color=black><b>BB탄 무게 에너지(J)<b></font></td>
+<td align="center" bgcolor="black" width="33%"><a href="javascript:csmUrl('csm_F')"  title="BB탄 무게, 속도 와 에너지 관계 클릭" onFocus="this.blur()">BB탄 무게 속도(F)</a></td>
+<td align="center" bgcolor="black" width="34%"><a href="javascript:csmUrl('csmtoday')" title="오늘의 띠별 운세 클릭" onFocus="this.blur()">오늘의 띠별 운세</a></td>
+</tr>
+
+<tr height="20"> <td align="center" bgcolor="white" colspan="3"><font color=black><b>BB탄 무게, 에너지 :  탄속, 유효사거리의 관계</b></font> </td></tr>
+	
+<tr><td align="center" bgcolor="black" colspan="3"> 
+
+<table border="0" align="center" cellpadding="5" cellspacing="0" bgcolor="#CCCCCC" width="100%">
+<tr><td bgcolor="black" align="center">
+<a href="http://www.chongsamo.co.kr" onfocus="this.blur()" target="_blank"><img height=94 src="http://www.chongsamo.com/web/upload/csmci.jpg" border=0><img height=94 src="http://www.chongsamo.com/web/upload/csm2339405.jpg" width=233 border=0>
+</td></tr>
+<tr height="20"><td bgcolor="black" align="right">&nbsp;<span id="clock"></span></td></tr>
+</table>
+
+	
+<table border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#CCCCCC" width="100%">
+
+<tr><td align="center" colspan="3" bgcolor="white" height="5"></td></tr>
+<tr><td bgcolor="black" align="center" colspan="3"><font color=white>입력(<b>BB탄 무게(g)과  에너지(J)를 입력 하세요)</b></font></td></tr>
+<tr>
+<td bgcolor="black">Mass (gram) : </td>
+<td bgcolor="black">
+
+<table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td><input type="text" name="bbmass" value="0.1" size="4"  class="cnj_input"> g (ex : 0.1g or 0.2g)&nbsp;</td>
+<td align='right'>
+
+<select name="bbsel" size="1"  class="cnj_sel" style="width:160" 
+    onChange="
+	var f = document.effective_range;
+	var slink = 'http://www.chongsamo.co.kr/sub/sub.asp?linked=&linked_s=';
+	if(selectedIndex==6){ 
+    f.bbmass.value=this.value;f.bbmass.select(); // 수동입력
+	} else { 
+	f.bbmass.value=this.value;
+	}">
+    <option value="0.1">비비탄 무게</option>    
+    <option value="0.1">0.1g</option>
+    <option value="0.12">0.12g</option>
+    <option value="0.17">0.17g</option>
+    <option value="0.2">0.2g</option>      
+    <option value="0.25">0.25g</option>  
+    <option value="0.1">수동입력</option>
+    </select>
+
+</td></tr>
+</table>
+
+</td>
+</tr>
+
+<tr> 
+<td bgcolor="black">Energy (Joule) : </td>
+<td bgcolor="black">
+<table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td><input type="text" name="bbenergy" value="0.14" size="4"  class="cnj_input"> J (ex : 0.5J or 0.2J)&nbsp;</td>
+<td align='right'>
+
+<select name="jusel" size="1"  class="cnj_sel"  style="width:160"  
+ 			onChange="
+			var f = document.effective_range;
+			var slink = 'http://www.chongsamo.co.kr/sub/sub.asp?linked=&linked_s=';
+			if(selectedIndex==4){ 
+	    	f.bbenergy.value=this.value;f.bbenergy.select(); // 수동입력
+			} else { 
+			f.bbenergy.value=this.value; 
+			}">
+    <option value=" 0.14">::: 선택 :::</option>
+    <option value=" 0.14">(14세 이상 국내)</option>
+    <option value="0.2">(20세 이상 국내)</option>
+    <option value="0.84">마루이 전동</option>
+    <option value="0.14">수동입력</option>
+    </select>
+
+	</td></tr>
+</table>
+
+</td>
+</tr>
+
+<tr><td bgcolor="black" align="center" colspan="3"> 
+<input onClick="csm_cal2()" type="button" value="확인" name="button1"  class="cnj_btn" onMouseover="this.className='cnj_btn2'" onMouseout="this.className='cnj_btn'" onFocus="this.blur()">&nbsp;
+<input type="reset" value="취소" name="button2"  class="cnj_btn" onMouseover="this.className='cnj_btn2'" onMouseout="this.className='cnj_btn'" onFocus="this.blur()">&nbsp;
+<input  onClick="alert('잘 보셨나요!\n\n총사모를 이용해주셔서 감사합니다.');window.top.self.close()" type="button" value="창 닫기" name="button3"  class="cnj_btn" onMouseover="this.className='cnj_btn2'" onMouseout="this.className='cnj_btn'" onFocus="this.blur()">
+</td></tr>
+		    
+<tr><td align="center" colspan="3" bgcolor="white" height="5"></td></tr>
+
+<tr><td align="center" colspan="3" bgcolor="black"><font color=white><b>결과</b></font></td></tr>
+
+<tr>
+<td bgcolor="black">Muzzle velocity</td>
+<td bgcolor="black">
+<input type="text" name="bbvelocity_fps"  size="10" class="cnj_input" readonly> (fps) &nbsp;&nbsp;
+<input type="text" name="bbvelocity_ms" size="10"   class="cnj_input" readonly> (m/s)
+</td>
+</tr>
+
+<tr>
+<td  bgcolor="black">Effective range</td>
+<td bgcolor="black">
+<input type="text" name="effectiverange_fps" size="10"   class="cnj_input" readonly> (feet) &nbsp;&nbsp;
+<input type="text" name="effectiverange_ms" size="10"   class="cnj_input" readonly> (m)
+
+</td>
+</tr>
+
+<tr><td align="center" colspan="3" bgcolor="white" height="5"></td></tr>
+
+<tr><td align="center" colspan="3" bgcolor="black"><font color=white><b>설명</b></font></td></tr>
+
+<tr><td colspan="3" bgcolor="black"> 
+<b>FPS :</b> Feet Per Second<br>
+<b>Joule :</b> 에너지의 단위.<br>
+<b>Muzzel Velocity :</b> 총구 속도<br>
+<b>Effective Range :</b> 유효 사거리. (호프업장치에 따라 많이 달라짐)
+</td></tr>
+
+<tr><td align="center" colspan="3" bgcolor="white" height="5"></td></tr>
+
+<tr><td bgcolor="black" colspan="3" height="64">
+
+<table border="0" cellpadding="5" cellspacing="0" align="center">
+<tr>
+<td align="right">  </td>
+
+<!-- <td> <script language='javascript' src='/banner.js'></script></td> -->
+<td><!--<a href="http://www.chongmoa.com" target="_blank"><img src="/www/banner/cma-banner3.gif" width="189" height="47" border="0"></a>--></td>
+
+</tr>
+</table>
+
+</td></tr>
+
+<tr><td align="center" colspan="3" bgcolor="white" height="5"></td></tr>
+</table>
+
+</td></tr>
+</table>
+</form>
+				
+</body>
+</html>

@@ -7,3 +7,6 @@ font { font-size: 9pt; }
 .cnj_btn {color:rgb(255,204,0); background-color:black;font-weight:normal;cursor:hand}
 .cnj_btn2 {color:lime; background-color:black;font-weight:bold;cursor:hand}
 .cnj_sel {color:#FFCC00; background-color:black;cursor:hand}
+table {
+    width: 30vw;
+}

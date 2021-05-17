@@ -33,6 +33,7 @@ function randomColor(onOff) {
 
       titleBar.style.background = "#" + c[0] + c[1] + c[2];
       //console.log(c[0], c[1], c[2]);
+
     }, 10);
   } else {
     clearInterval(timerId);
@@ -55,8 +56,13 @@ function colorSwitch() {
 }
 
 function loadCount() {
+
   var allElements = document.getElementsByTagName("*");
+
   Array.prototype.forEach.call(allElements, function (el) {
+
+    console.log()
+
     var includePath = el.dataset.includePath;
     if (includePath) {
       var xhttp = new XMLHttpRequest();
@@ -69,4 +75,5 @@ function loadCount() {
       xhttp.send();
     }
   });
+
 }

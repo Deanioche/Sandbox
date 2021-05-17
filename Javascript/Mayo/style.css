@@ -1,0 +1,33 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.wholePanel {
+    width: 21vw;
+    min-width: 400px;
+    margin: 10px 0 0 10px;
+    border: 2px black solid;
+}
+
+.wholePanel div{
+    width: 100.1%;
+}
+
+.wholePanel :nth-child(1){
+    border-bottom: 2px black solid;
+}
+
+.gamePanel { /* 6 x 13 */
+    height: 70vh;
+    display: grid;
+}
+
+.title {
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    cursor: pointer;
+    user-select: none;
+}

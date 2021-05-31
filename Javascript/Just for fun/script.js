@@ -1,12 +1,17 @@
-var bullet = document.querySelector('.shooter');
+// init
+var bullet = document.querySelector('.bullet');
+var shot = document.querySelector('.shot');
+var power = document.querySelector('.shot');
+var shot = document.querySelector('.shot');
 var shot = document.querySelector('.shot');
 var working = false;
 var thread;
 
+// bullet stat
 var shotPower = 100;
 var speed = 0;
-var resistance = 2;
-var gravity = 5;
+const air_resist = 1;
+const gravity = 10;
 
 bullet.innerHTML = '●';
 bullet.style.fontWeight = 'bold';
@@ -23,11 +28,9 @@ shot.addEventListener('click', function() {
         working = false;
         clearInterval(thread);
         bullet.style.left = '5px';
-        bullet.style.top = '50px';
+        bullet.style.bottom = '5vh';
     }
-
     
-
 })
 
 

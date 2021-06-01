@@ -17,9 +17,9 @@ body{
 
 .bullet {
     position: absolute;
-    font-size: 50px;
+    font-size: 5px;
     left : 0px;
-    bottom: calc(5vh - 6px);
+    bottom: calc(5vh);
     
 }
 

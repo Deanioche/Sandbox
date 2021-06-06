@@ -21,6 +21,10 @@ object Constants {
             4, "What country does this flag belong to?",
             R.drawable.ic_flag_of_germany, "Czechia", "Austria", "Germany", "Italy", 1
         )
+        val q5 = Question(
+            5, "What country does this flag belong to?",
+            R.drawable.ic_flag_of_australia, "Austria", "New Zealand", "Vietnam", "Australia", 1
+        )
 
         questionsList.add(q1)
         questionsList.add(q2)

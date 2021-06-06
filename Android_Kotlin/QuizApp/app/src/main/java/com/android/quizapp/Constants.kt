@@ -10,16 +10,16 @@ object Constants {
             R.drawable.ic_launcher_foreground, "Android", "Apple", "Google", "Korea", 1
         )
         val q2 = Question(
-            1, "What company does this symbol belong to2?",
-            R.drawable.ic_launcher_foreground, "Android", "Apple", "Google", "Korea", 1
+            2, "What country does this flag belong to?",
+            R.drawable.ic_flag_of_argentina, "Australia", "Spain", "Argentina", "Chile", 1
         )
         val q3 = Question(
-            1, "What company does this symbol belong to3?",
-            R.drawable.ic_launcher_foreground, "Android", "Apple", "Google", "Korea", 1
+            3, "What country does this flag belong to?",
+            R.drawable.ic_flag_of_belgium, "Berlin", "France", "Portugal", "Belgium", 1
         )
         val q4 = Question(
-            1, "What company does this symbol belong to4?",
-            R.drawable.ic_launcher_foreground, "Android", "Apple", "Google", "Korea", 1
+            4, "What country does this flag belong to?",
+            R.drawable.ic_flag_of_germany, "Czechia", "Austria", "Germany", "Italy", 1
         )
 
         questionsList.add(q1)

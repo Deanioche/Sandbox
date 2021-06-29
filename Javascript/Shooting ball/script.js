@@ -1,12 +1,12 @@
 // init
-var bullet = document.querySelector('.bullet');
-var bulletStat = window.getComputedStyle(bullet,null);
-var shot = document.querySelector('.shot');
-var power = document.querySelector('.power');
-var angle = document.querySelector('.angle');
-var weight = document.querySelector('.weight');
-var working = false;
-var thread;
+let bullet = document.querySelector('.bullet');
+let bulletStat = window.getComputedStyle(bullet,null);
+let shot = document.querySelector('.shot');
+let power = document.querySelector('.power');
+let angle = document.querySelector('.angle');
+let weight = document.querySelector('.weight');
+let working = false;
+let thread;
 
 power.value = 100;
 angle.value = 45;
@@ -15,13 +15,13 @@ weight.value = 1;
 // bullet init
 bullet.innerHTML = '●';
 bullet.style.fontWeight = 'bold';
-var initialBulletHeight = parseFloat(bulletStat.bottom);
-var currentBulletHeight = parseFloat(bulletStat.bottom);
+let initialBulletHeight = parseFloat(bulletStat.bottom);
+let currentBulletHeight = parseFloat(bulletStat.bottom);
 
 // bullet stat
-var movePower = 0;
-var upPower = 0;
-var rightPower = 0;
+let movePower = 0;
+let upPower = 0;
+let rightPower = 0;
 
 // setting
 const air_resist = 1;

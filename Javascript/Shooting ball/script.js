@@ -107,3 +107,4 @@ function getGravity(){
             ? (bulletStat.bottom - gravity) : initialBulletHeight);
     }
 }
+

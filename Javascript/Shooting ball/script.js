@@ -105,6 +105,8 @@ function getGravity(){
     if(parseFloat(bullet.style.bottom) > initialBulletHeight){
         bullet.style.bottom = (bulletStat.bottom - gravity >= initialBulletHeight 
             ? (bulletStat.bottom - gravity) : initialBulletHeight);
+
+        console.log(bullet.style.bottom);
     }
 }
 

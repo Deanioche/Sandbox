@@ -1,8 +1,6 @@
 var titleBar = document.querySelector(".title");
 var gamePanel = document.querySelector(".gamePanel");
-
 var timerId = 0;
-
 var c = [0, 255, 0];
 
 window.onload = function () {

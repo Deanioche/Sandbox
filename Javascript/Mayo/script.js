@@ -34,7 +34,7 @@ function randomColor(onOff) {
       titleBar.style.background = "#" + c[0] + c[1] + c[2];
       //console.log(c[0], c[1], c[2]);
 
-    }, 10);
+    }, 20);
   } else {
     clearInterval(timerId);
   }

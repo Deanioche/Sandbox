@@ -26,10 +26,9 @@ http://youtube.com 일 때
 
 '''
 
-
-url = "https://naver.com"
-url = "https://google.com"
-url = "https://egloo.com"
+# url = "https://naver.com"
+# url = "https://google.com"
+# url = "https://egloo.com"
 url = "https://efunket.com"
 r1 = url[url.index("/") + 2:]
 r2 = r1[:r1.index(".")]

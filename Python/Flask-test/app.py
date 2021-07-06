@@ -3,7 +3,7 @@ app = Flask(__name__) # flask 객체를 app에 할당
 
 @app.route('/') # flask 웹 페이지 경로
 def hello(): # 경로에서 실행될 기능 선언
-    return '<b>Hello!!!@@@@@</b>'
+    return '<b>Hello!!!</b>'
 
 if __name__ == "__main__":
     app.run() # host와 port 변경이 안됨

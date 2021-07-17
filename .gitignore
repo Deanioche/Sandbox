@@ -13,3 +13,5 @@
 **/*.pyc
 Javascript/test.js
 node_modules
+Kotlinprac
+**/SimpleWebapp/data

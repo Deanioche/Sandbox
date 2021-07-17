@@ -12,3 +12,4 @@
 **/*.springBeans
 **/*.pyc
 Javascript/test.js
+node_modules

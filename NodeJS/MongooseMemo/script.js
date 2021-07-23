@@ -16,31 +16,38 @@ var options = {
 $(document).ready(function () {
     load = function () {
         $.get('/load', function (data) {
-            $("#memo").empty();
+            $("#memo").empty(); // HTML의 데이터 출력될 부분을 초기화
 
-            data.reverse() // 오래된 글이 맨 위에 출력
+            $(data).each(function (i) {  // DB로 부터 받은 메모리스트(data) foreach로 출력 
 
-            $(data).each(function (i) {  // DB로 부터 받은 메모리스트(data) 출력 foreach
+                // 데이터 각각의 고유 id 저장
                 var id = this._id;
 
-                var date = new Date(this.date).toLocaleTimeString('ko-KR', options);
+                // string으로 받은 시간을 Date 객체로 변환 + 한국시간
+                var date = new Date(this.date).toLocaleTimeString('ko-KR');
+
+                // 데이터 HTML 틀에 맞춰 출력
                 $("#memo").prepend("<div class='item'></div>");
                 $("#memo .item:first").append("<div class='photo_thumb'></div>");
-                $("#memo .item:first").append("<div class='author'><b>" + this.author + "</b> (" + date + ")&nbsp;&nbsp; <span class='text_button modify'>MODIFY</span> <span class='text_button del'>DELETE</span> <span class='index'>" + (i + 1) + "</span> </div>");
+                $("#memo .item:first").append(`
+                        <div class='author'>
+                            <b>${this.author}</b> (${date}) &nbsp; &nbsp; 
+                            <span class='text_button modify'>MODIFY</span> 
+                            <span class='text_button del'>DELETE</span> 
+                            <span class='index'> ${(i + 1)} </span> 
+                        </div>`);
                 $("#memo .item:first").append("<div class='contents " + id + "'>" + this.contents + "</div>");
 
-                var cnt = 0;
+                // 위에 출력된 modify 버튼에 클릭리스너 지정
+                var memo = this.contents;
 
                 $("#memo .item:first .modify").click(function (evt) {  // modify 버튼이 눌러졌을 때
-                    var contents = $("#memo ." + id).html();
 
-                    console.log(contents)
-                    if (cnt == 0) {
-                        $("#memo ." + id).html("<textarea id='textarea_" + id + "' class='textarea_modify'>" + contents + "</textarea>");
-                        cnt = 1;
-                    }
+                    $("#memo ." + id).html("<textarea id='textarea_" + id + "' class='textarea_modify'>" + memo + "</textarea>");
+
+                    // Enter 키 이벤트 지정
                     $("#textarea_" + id).keypress(function (evt) {
-                        if ((evt.keyCode || evt.which) == 13) {  // 키보드에서 엔터버튼이 눌러졌을 때
+                        if ((evt.keyCode || evt.which) == 13) {
                             if (this.value != "") {
                                 modify(this.value, id);
                                 evt.preventDefault();
@@ -49,7 +56,8 @@ $(document).ready(function () {
                     });
                 });
 
-                $("#memo .item:first .del").click(function (evt) {  // del 버튼이 눌러졌을 때
+                // 위에 출력된 del 버튼에 클릭리스너 지정
+                $("#memo .item:first .del").click(function (evt) {
                     del(id);
                 });
             });
@@ -67,13 +75,20 @@ $(document).ready(function () {
         });
     };
 
-    write = function (contents) {
+    write = function () {
+
+        if ($('input[type = "author"]').val() == "" || $(".memoForm textarea").val() == "") {
+            return
+        }
 
         var postdata = {
             'author': $('input[type = "author"]').val(),
-            'contents': contents
+            'contents': $(".memoForm textarea").val()
         };
+
         $('input[type = "author"]').val("");
+        $(".memoForm textarea").val("");
+
         $.post('/write', postdata, function () {
             load();
         });
@@ -100,8 +115,7 @@ $(document).ready(function () {
     });
 
     $("#write_button").click(function (evt) {  // 쓰기 버튼을 클릭했을 때
-        write($(".memoForm textarea").val());
-        $(".memoForm textarea").val("");
+        write();
     });
 
     load();

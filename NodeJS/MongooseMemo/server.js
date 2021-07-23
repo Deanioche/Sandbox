@@ -2,14 +2,13 @@ const bodyParser = require('body-parser');
 var express = require('express');
 var mongoose = require('mongoose');
 
+// express 설정
 var app = express();
 app.use(express.static(__dirname + '/'))
 
 // # BodyParser - https://www.npmjs.com/package/body-parser
-// for parsing application/json
-app.use(bodyParser.json())
-// for parsing application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json()) // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 function getCurrentDate() {
     var date = new Date();
@@ -39,6 +38,8 @@ var Memo = new Schema({
 });
 
 var memoModel = mongoose.model('memo', Memo);
+
+memoModel.deleteMany({ contents: 'hangover' });
 
 app.get('/', (req, res) => {
     res.render('index', { title: 'Express' });
@@ -80,7 +81,7 @@ app.post('/write', function (req, res, next) {
 // 삭제
 app.post('/del', function (req, res, next) {
     var _id = req.body._id;
-    memoModel.remove({ _id: _id }, function (err, result) {
+    memoModel.deleteOne({ _id: _id }, function (err, result) {
         if (err) {
             throw err;
         }

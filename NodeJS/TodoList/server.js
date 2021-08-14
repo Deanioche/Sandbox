@@ -11,7 +11,7 @@ app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 // DB 연결
-mongoose.connect('mongodb+srv://[DB주소]?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://surimi:surimi@memo.r6o9e.mongodb.net/memoDB?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, "connection error:"));
 db.once('open', () => {

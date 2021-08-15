@@ -3,7 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Socket.IO 예제</title>
+    <title>Simple Socket Chat</title>
+    <style>
+        #messages {
+            width: 50%;
+            min-width: 600px;
+            max-height: 70vh;
+            overflow-y: auto;
+            word-wrap: break-word;
+            background-color: #fff2f2;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -15,7 +26,9 @@
     <form id="msgform">
         <input id="msginput" autocomplete="off" type="text">
         <button type="submit">전송</button>
+        <div>surimi😋</div>
     </form>
+
 
     <!-- JS -->
     <script src="/socket.io/socket.io.js"></script>
@@ -26,15 +39,16 @@
         // socket.on 함수로 서버로부터의 신호를 수신
         socket.on('usercount', (count) => {
             var userCounter = document.getElementById('usercount');
-            userCounter.innerText = "현재 " + count + "명이 서버에 접속해있습니다.";
+            userCounter.innerText = "## 현재 " + count + "명이 서버에 접속해있습니다.";
         });
 
         // 메시지 수신시 HTML에 메시지 내용 작성
         socket.on('message', (msg) => {
             var messageList = document.getElementById('messages');
             var messageTag = document.createElement("li");
-            messageTag.innerText = msg;
+            messageTag.innerHTML = msg;
             messageList.appendChild(messageTag);
+            messageList.scrollTop = messageList.scrollHeight;
         });
 
         //채팅 보내기

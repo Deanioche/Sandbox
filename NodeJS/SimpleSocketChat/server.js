@@ -22,16 +22,18 @@ io.on('connection', (socket) => {
 
     //io.emit으로 전체 클라이언트에게 접속자 수 전송
     io.emit('usercount', io.engine.clientsCount);
+    io.emit('message', '<b>## 누구 들어옴 [' + socket.id + ']</b>');
 
     // 클라이언트 접속 해제시 이벤트 발생
     socket.on("disconnect", () => {
-        console.log("Connection Lost")
-        io.emit('message', '누구 나감');
+        console.log("Connection Lost : " + socket.id)
+        io.emit('message', '<b>## 누구 나감 [' + socket.id + ']</b>');
         io.emit('usercount', io.engine.clientsCount);
     });
 
     // 클라이언트 -> 서버 메세지 수신 이벤트
     socket.on('message', (msg) => {
+        msg = `[${socket.id}] ${msg}`
 
         //msg에는 클라이언트에서 전송한 매개변수가 들어온다. 이러한 매개변수의 수에는 제한이 없다.
         console.log('Message received: ' + msg);

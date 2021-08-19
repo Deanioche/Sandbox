@@ -2,43 +2,45 @@
 // import axios from 'axios';
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useInput } from "./useInput";
+import { useTabs } from "./useTab"
 
-const useInput = (initVal) => {
-  const [val, setVal] = useState(initVal);
-  const onChange = (e) => {
-    console.log(e.target);
-  }; // 값이 변경될 때 마다 event의 target 출력
-  // target == <input value="surimi"></input>
-
-  return { val, onChange };
-};
-
-const Button = styled.button`
-  background: ${(p) => (p.primary ? "white" : "grey")};
-  font-weight: ${(p) => {
-    console.log(p.b);
-    return p.b * 10;
-  }};
-`;
+const content = [
+  {
+    tab: "Section 1",
+    content: "I'm the content of the Section 1"
+  },
+  {
+    tab: "Section 2",
+    content: "I'm the content of the Section 2"
+  }
+  ,
+  {
+    tab: "Section 3",
+    content: "I'm the content of the Section 3"
+  }
+];
 
 const App = () => {
-  const myName = useInput("surimi");
+  const inputCondition = value => value.length <= 10 && !value.includes("@");
+  // input 입력 10자 이내, @를 포함하지 않음
+  const myName = useInput("surimi", inputCondition);
 
-  const [item, setItem] = useState(1);
-  // useState는 Array를 리턴
-  //item과 setItem의 이름은 변경 o
-
-  const incrementItem = () => setItem(item + 1);
-  const decrementItem = () => setItem(item - 1);
+  const { currentItem, changeItem } = useTabs(0, content);
 
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-      <Button primary b={item} onClick={incrementItem}>
-        {item}
-      </Button>
+      <h1>Hello React Hook</h1>
+
+      <p>useInput</p>
       <input {...myName} />
+
+      <p>useTabs</p>
+      {content.map((section, index) => (
+        <button onClick={() => changeItem(index)}>{section.tab}</button>
+      ))}
+      <p>{currentItem.content}</p>
+
     </div>
   );
 };

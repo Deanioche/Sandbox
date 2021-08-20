@@ -5,6 +5,11 @@ import styled from "styled-components";
 import { useInput } from "./useInput";
 import { useTabs } from "./useTab"
 
+const Button = styled.button`
+  background: ${(p) => { return p.index === 0 ? "pink" : p.index === 1 ? "lightblue" : "lightYellow" }};
+  margin-right : ${p => { if (p.index < 2) return "5px;" }}
+`;
+
 const content = [
   {
     tab: "Section 1",
@@ -37,7 +42,7 @@ const App = () => {
 
       <p>useTabs</p>
       {content.map((section, index) => (
-        <button onClick={() => changeItem(index)}>{section.tab}</button>
+        <Button index={index} onClick={() => changeItem(index)}>{section.tab}</Button>
       ))}
       <p>{currentItem.content}</p>
 

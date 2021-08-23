@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Example Mouse Tracker</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+
+        .dot {
+            width: 2px;
+            height: 2px;
+            background-color: black;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Mouse tracker</p>
+    <script>
+
+        const handle = function (e) {
+            //Logging purposes
+            console.log("mouse location:", e.clientX, e.clientY);
+
+            //meat and potatoes of the snippet
+            var pos = e;
+            var dot;
+            dot = document.createElement('div');
+            dot.className = "dot";
+            dot.style.left = pos.x + "px";
+            dot.style.top = pos.y + "px";
+            document.body.appendChild(dot);
+        }
+
+        // 함수에 delay만큼 쿨타임을 준다.
+        let throttle = (func, delay) => {
+            let prev = Date.now() - delay;
+
+            return (...args) => {
+                let current = Date.now();
+                if (current - prev >= delay) {
+                    console.log(args)
+                    prev = current;
+                    func.apply(null, args);
+                }
+            }
+        };
+
+        document.addEventListener('mousemove', throttle(handle, 2000));
+    </script>
+</body>
+
+</html>

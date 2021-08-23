@@ -1,0 +1,11 @@
+html {
+  user-select: none;
+}
+
+div {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  padding: 0.5rem;
+  border: 3px dashed rebeccapurple;
+}

@@ -1,20 +1,17 @@
 {
   "files": {
-    "main.css": "/Sandbox/React/movie_app/static/css/main.2b050a45.chunk.css",
-    "main.js": "/Sandbox/React/movie_app/static/js/main.d28b87b6.chunk.js",
-    "main.js.map": "/Sandbox/React/movie_app/static/js/main.d28b87b6.chunk.js.map",
-    "runtime-main.js": "/Sandbox/React/movie_app/static/js/runtime-main.ac93c205.js",
-    "runtime-main.js.map": "/Sandbox/React/movie_app/static/js/runtime-main.ac93c205.js.map",
-    "static/js/2.4538a8ad.chunk.js": "/Sandbox/React/movie_app/static/js/2.4538a8ad.chunk.js",
-    "static/js/2.4538a8ad.chunk.js.map": "/Sandbox/React/movie_app/static/js/2.4538a8ad.chunk.js.map",
-    "index.html": "/Sandbox/React/movie_app/index.html",
-    "static/css/main.2b050a45.chunk.css.map": "/Sandbox/React/movie_app/static/css/main.2b050a45.chunk.css.map",
-    "static/js/2.4538a8ad.chunk.js.LICENSE.txt": "/Sandbox/React/movie_app/static/js/2.4538a8ad.chunk.js.LICENSE.txt"
+    "main.js": "/Sandbox/React/create-react-app/static/js/main.a427e033.chunk.js",
+    "main.js.map": "/Sandbox/React/create-react-app/static/js/main.a427e033.chunk.js.map",
+    "runtime-main.js": "/Sandbox/React/create-react-app/static/js/runtime-main.ccbf9507.js",
+    "runtime-main.js.map": "/Sandbox/React/create-react-app/static/js/runtime-main.ccbf9507.js.map",
+    "static/js/2.9199a46f.chunk.js": "/Sandbox/React/create-react-app/static/js/2.9199a46f.chunk.js",
+    "static/js/2.9199a46f.chunk.js.map": "/Sandbox/React/create-react-app/static/js/2.9199a46f.chunk.js.map",
+    "index.html": "/Sandbox/React/create-react-app/index.html",
+    "static/js/2.9199a46f.chunk.js.LICENSE.txt": "/Sandbox/React/create-react-app/static/js/2.9199a46f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.ac93c205.js",
-    "static/js/2.4538a8ad.chunk.js",
-    "static/css/main.2b050a45.chunk.css",
-    "static/js/main.d28b87b6.chunk.js"
+    "static/js/runtime-main.ccbf9507.js",
+    "static/js/2.9199a46f.chunk.js",
+    "static/js/main.a427e033.chunk.js"
   ]
 }

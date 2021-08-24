@@ -75,7 +75,7 @@ const App = () => {
 
     // useNotification
     const options = {
-        icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+        icon: 'https://raw.githubusercontent.com/Soksurim/Sandbox/gh-pages/logo192.png',
         body: 'Hi!! :D'
     }
 

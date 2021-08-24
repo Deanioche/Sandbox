@@ -9,8 +9,7 @@ var options = {
     day: "numeric",
     hour: 'numeric',
     minute: 'numeric',
-    second: 'numeric',
-    timezone: 'short'
+    second: 'numeric'
 };
 
 $(document).ready(function () {
@@ -24,7 +23,9 @@ $(document).ready(function () {
                 var id = this._id;
 
                 // string으로 받은 시간을 Date 객체로 변환 + 한국시간
-                var date = new Date(this.date).toLocaleTimeString('ko-KR');
+                var date = new Date(this.date).toLocaleTimeString('ko-KR', options);
+                console.log(date);
+
 
                 // 데이터 HTML 틀에 맞춰 출력
                 $("#memo").prepend("<div class='item'></div>");

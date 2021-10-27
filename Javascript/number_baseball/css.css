@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p, h1 {
+    margin: 10px;
+    background: #fff;
+}
+
+.answer {
+    height: 30px;
+}
+
+.panel {
+    display: flex;
+    flex-flow: column;
+}
+
+.panel * {
+    margin: 10px 20px 0 20px;
+    min-width: 30vw;
+    max-width: 90vw;
+    width: 500px;
+    padding: 5px;
+}
+
+.log {
+    text-align: right;
+    overflow-y: scroll;
+    white-space: pre-wrap;
+}
+
+.symbol {
+    position: absolute;
+    right: 5vw;
+    bottom: 1vh;
+    z-index: -9999;
+    padding: 2px 10px 3px 10px;
+    background: #ddd;
+    border-radius: 20px;
+    opacity: 0.8;
+}

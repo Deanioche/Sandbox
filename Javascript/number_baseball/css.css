@@ -18,7 +18,7 @@ p, h1 {
     flex-flow: column;
 }
 
-.panel * {
+.panel .answer, .log {
     margin: 10px 20px 0 20px;
     min-width: 30vw;
     max-width: 90vw;
@@ -33,14 +33,12 @@ p, h1 {
 }
 
 .symbol {
-    position: absolute;
-    right: 5vw;
-    bottom: 1vh;
-    z-index: -9999;
+    float: right;
+    margin: 20px;
     padding: 2px 10px 3px 10px;
     background: rgb(255, 232, 221);
     border-radius: 20px;
-    opacity: 0.8;
+    opacity: 0.6;
     text-decoration: none;
     color: black;
 }
@@ -48,6 +46,7 @@ p, h1 {
 .symbol:hover {
     font-weight: 800;
     font-size: 16px;
+    cursor: pointer;
 }
 
 #disqus_thread {

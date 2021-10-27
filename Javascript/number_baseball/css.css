@@ -49,3 +49,7 @@ p, h1 {
     font-weight: 800;
     font-size: 16px;
 }
+
+#disqus_thread {
+    margin: 20px;
+}

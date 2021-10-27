@@ -1,27 +1,36 @@
-
 const log = document.querySelector(".log");
 const ans = document.querySelector(".answer");
+let playing = false;
+let cnt = 1;
+let com = get_randnum();
+
 
 window.onload = function () {
 
-    let com = init();
-    let cnt = 1;
-
-    ans.addEventListener("keydown", function (e) {
-        if (e.keyCode == 13 && !e.shiftKey) {
-            e.preventDefault();
-            log.textContent += `# ${cnt++}번째 시도 : ` + ans.value + "\n";
-            if (vaild(ans.value))
-                check(make_list(ans.value), com);
-            ans.value = "";
-            log.scrollTop = log.scrollHeight;
-        }
-    });
+    ans.addEventListener("keydown", key_down);
+    init();
 }
 
 function init() {
-    log.textContent += "숫자가 정해졌습니다.\n";
-    return get_randnum();
+    playing = true;
+    cnt = 1;
+    com = get_randnum();
+    log.textContent = "숫자가 정해졌습니다.\n";
+    log.scrollTop = log.scrollHeight;
+    ans.value = "";
+}
+
+function key_down(e) {
+    if (!playing)
+        init();
+    else if (e.keyCode == 13 && !e.shiftKey) {
+        e.preventDefault();
+        log.textContent += `# ${cnt++}번째 시도 : ` + ans.value + "\n";
+        if (vaild(ans.value))
+            check(make_list(ans.value), com);
+        ans.value = "";
+        log.scrollTop = log.scrollHeight;
+    }
 }
 
 function get_randnum() {
@@ -72,7 +81,7 @@ function check(m, c) {
 function print_result(s, b) {
     let txt = "";
     if (s === 3)
-        log.textContent += "3개의 숫자를 모두 맞히셨습니다! 게임 종료\n";
+        game_over();
     else if (s === 0 && b === 0)
         log.textContent += "Nothing\n\n";
     else {
@@ -82,3 +91,8 @@ function print_result(s, b) {
     }
 }
 
+function game_over() {
+    log.textContent += "3개의 숫자를 모두 맞히셨습니다! 게임 종료\n";
+    playing = false;
+    log.textContent += "\n# 새 게임을 시작하려면 아무거나 입력하세요.\n\n";
+}

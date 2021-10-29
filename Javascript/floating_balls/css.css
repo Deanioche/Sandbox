@@ -1,0 +1,41 @@
+
+.ball-panel {
+    height: 600px;
+    width: 600px;
+}
+
+.ball-div {
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    position: absolute;
+    top: 0
+}
+
+.ball-div p {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0
+}
+
+.ball-div:nth-of-type(5n+1) p {
+    background-color: #ff4b47
+}
+
+.ball-div:nth-of-type(5n+2) p {
+    background-color: #f58f39
+}
+
+.ball-div:nth-of-type(5n+3) p {
+    background-color: #40e64f
+}
+
+.ball-div:nth-of-type(5n+4) p {
+    background-color: #39bac5
+}
+
+.ball-div:nth-of-type(5n) p {
+    background-color: #e0c93b
+}

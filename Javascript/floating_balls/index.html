@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <title>Floating balls</title>
+</head>
+
+<body>
+    <div class="ball-panel">
+    </div>
+    <script src="jquery.min.js"></script>
+    <script>
+        var prevPnlBallsWidth = 0;
+        var prevPnlBallsHeight = 0;
+        function showFunnyBalls() {
+            var g = $(".ball-panel");
+            if (typeof g[0] === "undefined" || typeof g[0].animate === "undefined") {
+                return
+            }
+            if (prevPnlBallsWidth === g.width() && prevPnlBallsHeight === g.height()) {
+                return
+            }
+            prevPnlBallsWidth = g.width();
+            prevPnlBallsHeight = g.height();
+            g.css("overflow", "hidden");
+            var f = g.first();
+            $(".ball-div").remove();
+            var j = Math.max((prevPnlBallsWidth * prevPnlBallsHeight) / 10000, 20);
+            for (i = 0; i < j; i++) {
+                f.before('<div class="ball-div" style="left: ' + Math.floor(Math.random() * prevPnlBallsWidth) + "px; top: " + Math.floor(Math.random() * prevPnlBallsHeight) + 'px;"><p></p></div>')
+            }
+            try {
+                var d = document.querySelectorAll(".ball-div > p");
+                Array.prototype.slice.call(d).forEach(function (b, a) {
+                    var e = {
+                        x: (Math.random() * 22) - 11,
+                        y: (Math.random() * 22) - 11
+                    };
+                    b.animate([{
+                        transform: "translate(0,0) scale(1)",
+                        opacity: 0.5
+                    }, {
+                        transform: "translate(" + e.x + "rem," + e.y + "rem) scale(" + Math.random() + ")",
+                        opacity: Math.random() * 0.5
+                    }], {
+                        duration: (Math.random() + 1) * 2000,
+                        direction: "alternate",
+                        fill: "forwards",
+                        iterations: Infinity,
+                        easing: "ease-in-out",
+                        delay: 0
+                    })
+                });
+                var c = document.querySelectorAll(".ball-div");
+                console.log(Array.prototype.slice.call(c));
+                Array.prototype.slice.call(c).forEach(function (b, a) {
+                    b.animate([{
+                        opacity: 0
+                    }, {
+                        opacity: 1
+                    }], {
+                        duration: 5000,
+                        easing: "ease-out"
+                    })
+                })
+            } catch (h) {
+                console.log(h)
+            }
+        }
+        showFunnyBalls();
+    </script>
+</body>
+
+</html>

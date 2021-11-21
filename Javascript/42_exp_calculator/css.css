@@ -1,0 +1,128 @@
+
+.CalculatorContainter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  .CalculatorRowContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  #CalculatorResult {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #CalculatorDaysBlackholes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #CalculatorDaysBlackholesCredit {
+    text-align: right;
+    font-size: x-small;
+    align-items: flex-end;
+  }
+
+  .CalculatorArticleContainter{
+    display: flex;
+    align-items: center;
+  }
+  
+  .CalculatorMemeContainter{
+    display: flex;
+    align-items: center;
+  }
+
+  #resultBlackholesDays {
+    font-size: xx-large;
+  }
+
+  html { 
+  margin:0;
+  padding:0;
+  background:url("background.png") no-repeat center center fixed;
+  background-size: cover;
+  overflow-y:auto !important;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+section:first-of-type {
+  /* Hack to set a margin with navigation */
+  margin-top: 60px;
+}
+
+.box {
+  text-align: center;
+}
+
+body {
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.centerSearch {
+  display: flex;
+  justify-content: center;
+}
+
+.mainTitle {
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.tableResponsive  {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.img {
+  width: 80px;
+  height: 100px;
+  background-size: 100%;
+  border-radius: 4px;
+  min-width: 80px;
+  background-repeat: no-repeat;
+}
+
+
+.notification {
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+}
+
+
+.Center {
+  margin-top: 5px;
+  justify-content: center;
+}
+
+#result {
+  font-size: xx-large;
+}
+
+.grayResult {
+  color: gray;
+}
+
+.colorResult {
+  color: #363636;
+}
+
+.table td, .table th {
+  vertical-align: inherit;
+}

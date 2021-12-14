@@ -11,7 +11,7 @@
 **/*.project
 **/*.springBeans
 **/*.pyc
-Javascript/test.js
+**/*test.*
 node_modules
 Kotlinprac
 **/SimpleWebapp/data
@@ -43,3 +43,7 @@ React/yarn-error.log*
 
 # Android
 Android_Kotlin/WebappTest
+Java/Neko/
+
+# Java
+**/*.class

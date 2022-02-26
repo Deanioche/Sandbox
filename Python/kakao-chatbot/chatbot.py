@@ -1,5 +1,7 @@
 import time, win32con, win32api, win32gui
 
+# pip install pywin32 후 사용 가능
+
 # # 카톡창 이름 (열려있는 상태, 최소화 X, 창뒤에 숨어있는 비활성화 상태 가능)
 kakao_opentalk_name = '톡방 이름'
 

@@ -7,8 +7,8 @@
 
 .btn_location {
     width: 100%;
-    text-align: right;
-    padding-right: 0px;
+    display: flex;
+    justify-content: right;
 }
 
 .btn {
